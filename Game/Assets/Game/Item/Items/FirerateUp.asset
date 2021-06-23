@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f82a2ea01fef9344bcbdb0a73b91717, type: 3}
   m_Name: FirerateUp
   m_EditorClassIdentifier: 
-  name: Damage Up
+  name: FireRate Up
   icon: {fileID: 21300092, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
   _damage: 0
   _range: 0
-  _fireRate: 1
+  _fireRate: 0.1
+  _bulletSpeed: 0

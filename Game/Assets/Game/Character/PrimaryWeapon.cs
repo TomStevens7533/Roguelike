@@ -61,7 +61,7 @@ public class PrimaryWeapon : MonoBehaviour
     }
     public void AdjustFirerate(float fireRate)
     {
-        _fireRate += fireRate;
+        _fireRate -= fireRate;
     }
     public void AdjustRange(float range)
     {

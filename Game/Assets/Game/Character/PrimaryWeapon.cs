@@ -65,7 +65,6 @@ public class PrimaryWeapon : MonoBehaviour
     }
     public void AdjustRange(float range)
     {
-        Debug.Log(range);
         _range += range;
     }
     public void AdjustSpeed(float speed)

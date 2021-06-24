@@ -13,17 +13,7 @@ public abstract class Bullet : MonoBehaviour
 
     private void Awake()
     {
-        _mainCam = Camera.main;
 
-        if (_mainCam == null) Debug.LogError("Bullet.cs: mainCam is null!");
-
-        var mousePos = _mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 point = new Vector2(mousePos.x, mousePos.y);
-        _startPos = new Vector2(transform.position.x, transform.position.y);
-        _direction = (point - _startPos).normalized;
-
-        float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
-        transform.Rotate(0, 0, angle);
     }
     void Update()
     {
@@ -55,5 +45,28 @@ public abstract class Bullet : MonoBehaviour
     {
         _range = range;
         Debug.Log("Setting range to " + _range);  
+    }
+    public void SetDirection(Vector2 direction, bool isMousePointer)
+    {
+        _mainCam = Camera.main;
+
+        if (_mainCam == null) Debug.LogError("Bullet.cs: mainCam is null!");
+
+        if (isMousePointer)
+        {
+            var mousePos = _mainCam.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 point = new Vector2(mousePos.x, mousePos.y);
+            _startPos = new Vector2(transform.position.x, transform.position.y);
+            _direction = (point - _startPos).normalized;
+
+        }
+        else
+        {
+            _startPos = new Vector2(transform.position.x, transform.position.y);
+            _direction = direction;
+        }
+
+        float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+        transform.Rotate(0, 0, angle);
     }
 }
